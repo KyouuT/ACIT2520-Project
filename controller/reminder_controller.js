@@ -41,7 +41,6 @@ let remindersController = {
   },
 
   update: (req, res) => {
-    // implementation here 👈
     let reminderToUpdate = req.params.id;
     let reminder = database.cindy.reminders.find(reminder => reminder.id == reminderToUpdate);
     if (reminder) {
@@ -50,11 +49,9 @@ let remindersController = {
       reminder.completed = req.body.completed;
     res.redirect("/reminders");
     };
-    
   },
 
   delete: (req, res) => {
-    // implementation here 👈
     let reminderToFind = req.params.id;
     let searchResult = database.cindy.reminders.findIndex(function (reminder) {
       return reminder.id == reminderToFind;
