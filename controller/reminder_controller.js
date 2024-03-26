@@ -41,7 +41,6 @@ let remindersController = {
   },
 
   update: (req, res) => {
-
     let reminderToUpdate = req.params.id;
     let reminder = database.cindy.reminders.find(reminder => reminder.id == reminderToUpdate);
     if (reminder) {
