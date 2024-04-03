@@ -1,15 +1,19 @@
 let database = require("../database");
+let { ensureAuthenticated, isAdmin } = require("../middleware/checkAuth");
 
 let remindersController = {
-  isLoggedIn : (req,res) =>{ req.isAuthenticated()
+  isLoggedin:(req,res)=>{
+    return req.isAuthenticated();
   },
   list: (req, res) => {
     let user = database.find((user) => user.name === req.user.name);
-    res.render("reminder/index", { reminders: user.reminders, isLoggedIn: remindersController.isLoggedIn }); // req.user.reminders 로 바꾸기
+    res.render("reminder/index", { reminders: user.reminders,isLoggedin:remindersController.isLoggedin,
+      isAdmin: isAdmin }); // req.user.reminders 로 바꾸기
   },
 
   new: (req, res) => {
-    res.render("reminder/create", {isLoggedIn: remindersController.isLoggedIn});
+    res.render("reminder/create", {isLoggedin:remindersController.isLoggedin,
+    isAdmin: isAdmin});
   },
 
   listOne: (req, res) => {
@@ -19,7 +23,8 @@ let remindersController = {
       return reminder.id == reminderToFind;
     });
     if (searchResult != undefined) {
-      res.render("reminder/single-reminder", { reminderItem: searchResult, isLoggedIn: remindersController.isLoggedIn});
+      res.render("reminder/single-reminder", { reminderItem: searchResult, isLoggedin:remindersController.isLoggedin,
+      isAdmin: isAdmin});
     } else {
       res.render("reminder/index", { reminders: user.reminders });
     }
@@ -43,7 +48,10 @@ let remindersController = {
     let searchResult = user.reminders.find(function (reminder) {
       return reminder.id == reminderToFind;
     });
-    res.render("reminder/edit", { reminderItem: searchResult, isLoggedIn: remindersController.isLoggedIn});
+    res.render("reminder/edit", { 
+      reminderItem: searchResult, 
+      isLoggedin:remindersController.isLoggedin,
+      isAdmin: isAdmin});
   },
 
   update: (req, res) => {

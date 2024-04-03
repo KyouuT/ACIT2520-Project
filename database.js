@@ -4,6 +4,7 @@ let Database = [
     name : "Cindy",
     email: "cindy@test.com",
     password: "cindy123",
+    role: "admin",
     reminders: [
       {
         id: 1,
@@ -30,6 +31,7 @@ let Database = [
     name : "Alex",
     email: "alex@test.com",
     password: "alex123",
+    role: "user",
     reminders: [
       {
         id: 1,
@@ -56,6 +58,7 @@ let Database = [
     name : "Rony",
     email: "rony@test.com",
     password: "rony123",
+    role: "user",
     reminders: [
       {
         id: 1,

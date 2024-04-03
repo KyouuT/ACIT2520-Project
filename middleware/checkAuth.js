@@ -1,10 +1,10 @@
 module.exports = {
-  // isAdmin: function (req, res, next) {
-  //   if (req.isAuthenticated() && req.user.role === "admin") {
-  //     return next();
-  //   }
-  //   res.redirect("/admin");
-  // },
+  isAdmin: function (req, res, next) {
+    if (req.isAuthenticated() && req.user.role === "admin") {
+      return next();
+    }
+    res.redirect("/sessions");
+  },
 
   ensureAuthenticated: function (req, res, next) {
     if (req.isAuthenticated()) {

@@ -46,6 +46,8 @@ app.post("/reminder/delete/:id", reminderController.delete);
 // 👌 Ignore for now
 app.get("/register", authController.register);
 app.get("/login", forwardAuthenticated ,authController.login);
+app.get("/admin", authController.admin);
+app.get("/admin/destroy/:sessionId", authController.destroy);
 app.post("/register", authController.registerSubmit);
 app.post("/login", authController.loginSubmit);
 

@@ -1,0 +1,13 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+
+ <% Object.keys(sessions).forEach(sessionId => { %>
+    <div class="container mt-5">
+        <p>Current Active Sessions:</p>
+        <p>SessionID: <%= sessionId %></p>
+        <p>UserId: <%= sessions[sessionId].passport.user %></p>
+        <btn class="btn btn-danger" onclick="window.location.href='/admin/destroy/<%= sessionId %>'">Revoke Session</btn>
+    </div>
+ <% }) %>
+    
+
