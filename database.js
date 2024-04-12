@@ -40,13 +40,13 @@ let Database = [
         completed: false,
       },
       {
-        id: 1,
+        id: 2,
         title: "Clothes shopping",
         description: "Buy clothes from H&M",
         completed: false,
       },
       {
-        id: 1,
+        id: 3,
         title: "Clothes shopping",
         description: "Buy clothes from H&M",
         completed: false,
@@ -67,13 +67,13 @@ let Database = [
         completed: false,
       },
       {
-        id: 1,
+        id: 2,
         title: "Tire shopping",
         description: "Buy tire from Costco",
         completed: false,
       },
       {
-        id: 1,
+        id: 3,
         title: "Tire shopping",
         description: "Buy tire from Costco",
         completed: false,

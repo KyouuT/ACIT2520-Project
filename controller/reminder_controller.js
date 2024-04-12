@@ -35,6 +35,7 @@ let remindersController = {
     let reminder = {
       id: user.reminders.length + 1,
       title: req.body.title,
+      banner: req.body.banner,
       description: req.body.description,
       completed: false,
     };
